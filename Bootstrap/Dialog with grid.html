@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>Bootstrap - dialog + grid</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<a href="#" class="btn btn-default" id="openBtn">Open modal</a>
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Modal header</h3>
+				</div>
+				<div class="modal-body">
+					<div class="container col-md-12">
+						<div class="row">
+							<div class="col-md-3">
+								<p>
+									1st col 3
+								</p>
+							</div>
+							<div class="col-md-3">
+								<p>
+									2nd col 3
+								</p>
+							</div>
+							<div class="col-md-3">
+								<p>
+									3rd col 3
+								</p>
+							</div>
+							<div class="col-md-3">
+								<p>
+									4th col 3
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- JS -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$('#openBtn').click(function(){
+			$('#myModal').modal({show:true})
+		});
+	</script>
+</body>
+</html>
