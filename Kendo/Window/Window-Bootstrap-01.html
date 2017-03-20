@@ -1,0 +1,154 @@
+<html>
+<head>
+	<title>Kendo - Window - Bootstrap</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+	<!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<!-- kendo -->
+	<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2016.3.1118/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2016.3.1118/styles/kendo.uniform.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2016.3.1118/styles/kendo.uniform.mobile.min.css" />
+	
+	<style>
+		.modal-body .container{ margin: 0px; padding: 0px; }
+		.mgn-bottom10{ margin-bottom: 10px; }
+		.k-widget *{
+			-webkit-box-sizing: inherit;
+			box-sizing: inherit;
+		}
+		.col-shadow{ 
+			background-color: #e6cccc;
+			box-shadow: 1px 1px 11px #333;
+		}
+	</style>
+	
+	<!-- JS -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script src="https://kendo.cdn.telerik.com/2016.3.1118/js/kendo.all.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="Window-Bootstrap-01.js"></script>
+</head>
+<body>
+
+	<script id="dlgTemplate" type="text/x-kendo-template">
+	  <div id="dlgAdd">
+		<div class="demo-section k-content">
+			<div>
+			  <div id="toolbar"></div>
+			  <form id="ticketsForm" action="javascript:void(0);">
+				<div class="modal-dialog" style="margin:0px;width:100%;">
+					<div class="modal-body">
+						<div class="container col-sm-12 col-md-12">
+							<div class="row mgn-bottom10">
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+								<div class="col-sm-1 col-md-1 col-shadow">1</div>
+							</div>
+							<div class="row mgn-bottom10">
+								<div class="col-sm-2 col-md-2 col-shadow">2</div>
+								<div class="col-sm-2 col-md-2 col-shadow">2</div>
+								<div class="col-sm-2 col-md-2 col-shadow">2</div>
+								<div class="col-sm-2 col-md-2 col-shadow">2</div>
+								<div class="col-sm-2 col-md-2 col-shadow">2</div>
+								<div class="col-sm-2 col-md-2 col-shadow">2</div>
+							</div>
+							<div class="row mgn-bottom10">
+								<div class="col-sm-3 col-md-3 col-shadow">3</div>
+								<div class="col-sm-3 col-md-3 col-shadow">3</div>
+								<div class="col-sm-3 col-md-3 col-shadow">3</div>
+								<div class="col-sm-3 col-md-3 col-shadow">3</div>
+							</div>
+							<div class="row mgn-bottom10">
+								<div class="col-sm-4 col-md-4 col-shadow">4</div>
+								<div class="col-sm-4 col-md-4 col-shadow">4</div>
+								<div class="col-sm-4 col-md-4 col-shadow">4</div>
+							</div>
+							<div class="row mgn-bottom10">
+								<div class="col-sm-5 col-md-5 col-shadow">5</div>
+								<div class="col-sm-5 col-md-5 col-shadow">5</div>
+								<div class="col-sm-2 col-md-2 col-shadow">2</div>
+							</div>
+							<div class="row mgn-bottom10">
+								<div class="col-sm-6 col-md-6 col-shadow">6</div>
+								<div class="col-sm-6 col-md-6 col-shadow">6</div>
+							</div>
+							<div class="row mgn-bottom10">
+								<div class="col-sm-12 col-md-12 col-shadow">12</div>
+							</div>
+							
+							<div class="row mgn-bottom10">
+								<div class="col-sm-3 col-md-3">
+									First Name:
+								</div>
+								 <div class="col-sm-6 col-md-6">
+									 <input type="text" id="firstname" name="firstname" class="k-textbox" placeholder="First name" required validationMessage="Enter {0}" data-bind="value: data.firstname, events: { change: onChange }" style="width:100%;" />
+								 </div>						 
+							</div>
+							<div class="row" style="margin-bottom:10px;">
+								<div class="col-sm-3 col-md-3">
+									Last Name:
+								</div>
+								 <div class="col-sm-6 col-md-6">
+									 <input type="text" id="lastname" name="lastname" class="k-textbox" placeholder="Last name" required validationMessage="Enter {0}" data-bind="visible: isVisible, value: data.lastname, events: { change: onChange }" style="width:100%;" />
+								 </div>						 
+							</div>
+							
+							<div class="row" style="margin-bottom:10px;">
+								<!-- tabs -->
+								<div id="tabstrip"></div>
+							</div>
+							
+							<div class="row" style="text-align: center;margin: 10px 0px;padding-top: 10px;border-top: 1px solid #ccc;">
+								<button class="k-button k-primary" data-bind="click: btnSave_Click">Save Change</button>
+								<button class="k-button k-primary" data-bind="click: btnCancel_Click">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				
+			  </form>
+			  
+			</div>
+		</div>
+	  </div>
+	</script>
+	
+	<script type="text/javascript">
+		function Screen() { return { width: $(window).width(), height: $(window).height() }; };
+		
+		 $(document).ready(function(){
+			var oWin = $("<div id='popupWindow'></div>")
+				.appendTo("body")
+				.kendoWindow({
+					  width: Screen().width/2,
+					  modal: true,
+					  title: "FormAdd",
+					  visible: false,
+					  animation: {
+						open: { effects: 'expand:vertical' },
+						close: { effects: 'expand:vertical', reverse: true}
+					  },
+					  close: function (e) { this.destroy(); }
+				}).data('kendoWindow').content($('#dlgTemplate').html()).center().open();
+			//viewAddModel.onInit(oWin);
+			//kendo.bind($("#dlgAdd"), viewAddModel);
+		  });
+	</script>
+	
+
+	
+</body>
+</html>
