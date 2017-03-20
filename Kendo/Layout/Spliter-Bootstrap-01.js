@@ -2,9 +2,35 @@
    //$("#MySplitter").splitter();
    //$('#MySplitter').splitter({type: 'h'});
    
-   $('#sp_v1').splitter({type: 'v'});
-   $('#sp_v2').splitter({type: 'v'});
-   $('#sp_h1').splitter({type: 'h'});
+   // $('#sp_v1').splitter({type: 'v'});
+   // $('#sp_v2').splitter({type: 'v'});
+   // $('#sp_h1').splitter({type: 'h'});
+   
+   // Vertical splitter. Set min/max/starting sizes for the left pane.
+	$("#MySplitter").splitter({
+		type: 'v'
+		// splitVertical: true,
+		// outline: true,
+		// sizeLeft: 150, minLeft: 100, maxLeft: 200,
+		// anchorToWindow: true,
+		//accessKey: "L"
+	});
+	// First horizontal splitters, nested in the right pane of the vertical splitter.
+	$("#TopSplitter").splitter({
+		type: 'h'
+		// splitHorizontal: true,
+		// outline: true,
+		// sizeTop: 100, minTop: 50, maxTop: 200,
+		//accessKey: "V"
+	});
+	// Second horizontal splitter, nested in bottom pane of first horizontal splitter
+	$("#BottomSplitter").splitter({
+		type: 'h'
+		// splitHorizontal: true,
+		// outline: true,
+		// sizeBottom: 120, minTop: 50,
+		//accessKey: "J"
+	});
 });
 
 /*

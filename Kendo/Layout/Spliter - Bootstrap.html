@@ -26,16 +26,93 @@
 			width: 100%;
 			background: red;
 		}
+		
+		html, body
+{
+	margin: 0;			/* Remove body margin/padding */
+	padding: 0;
+	overflow: hidden;	/* Remove scroll bars on browser window */
+}
+#header { padding: 1em; }
+
+#MySplitter {
+	border: 3px solid #669;
+	min-width: 500px;	/* Splitter can't be too thin ... */
+	min-height: 300px;	/* ... or too flat */
+	height: 100%;
+}
+#MySplitter .Pane {
+	overflow: auto;
+	background: #def;
+}
+
+/* Splitbar styles; these are the default class names */
+
+.vsplitbar {
+	width: 6px;
+	background: #669 url(img/vgrabber.gif) no-repeat center;
+}
+.vsplitbar:hover, .vsplitbar.active {
+	background: #c66 url(img/vgrabber.gif) no-repeat center;
+	opacity: 0.7;
+	filter: alpha(opacity=70); /* IE */
+}
+.hsplitbar {
+	height: 6px;
+	background: #669 url(img/hgrabber.gif) no-repeat center;
+}
+.hsplitbar.active, .hsplitbar:hover {
+	background: #c66 url(img/hgrabber.gif) no-repeat center;
+	opacity: 0.7;
+	filter: alpha(opacity=70); /* IE */
+}
 	</style>
 	
 	<!-- JS -->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<!--<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
+	
 	<script src="https://kendo.cdn.telerik.com/2016.3.1118/js/kendo.all.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="Spliter-Bootstrap-01.js"></script>
 </head>
 <body>
-	<div class="container" id="sp_h1"> 
+
+<div id="MySplitter">
+
+  <div class="Left Pane">
+		<p>This is the left pane of the 4-pane splitter. It has been limited to a range of 100 to 300 pixels wide with the <code>minLeft</code> and <code>maxLeft</code> properties of the plugin. It starts at 150 pixels wide because of <code>sizeLeft</code> property.</p>
+		<p>All of the other panes are created by nesting two horizontal splitters in the right pane of this vertical splitter.</p>
+		<p>To move the vertical splitbar using the keyboard, use the "L" accelerator key (Alt-Shift-L in IE and Firefox).</p>
+  </div> 
+
+  <div id="TopSplitter"> 
+ 
+	<div class="Top Pane">
+		<p>This is the top-right horizontal pane. It tries to stay at its current size if you resize the bottom horizontal splitbar.</p>
+		<p>The splitbars are keyboard-accessible. Use <kbd>Alt-Shift-V</kbd> to select the vertical splitbar, or <kbd>Alt-Shift-H</kbd>  for the horizontal one. Then use the arrow keys to move the bar. The plugin lets you specify any key for the access key, but be sure to test on all browsers in case they reserve those keystrokes.</p>
+		<p>To move the horizontal splitbar below this pane using the keyboard, use the "V" accelerator key (Alt-Shift-V in IE and Firefox).</p>
+	</div>
+	
+	<div id="BottomSplitter">
+		<div class="Middle Pane">
+			<p>This is the middle-right pane, which starts at a height that varies depending on the height of the browser window. Since the top pane has <code>sizeTop: 100</code> and the bottom pane has <code>sizeBottom: 120</code>, this pane gets whatever is left over. The overall size of the splitter has been set to <code>min-height: 300px</code> in the style sheet, so it will be at least 80 pixels high.</p>
+		</div>
+		<div class="Bottom Pane">
+			<p>This is the bottom-right pane of the splitter. It tries to stay at its current size if you resize the top horizontal splitbar.</p>
+			<p>To move the horizontal splitbar above this pane using the keyboard, use the "J" accelerator key (Alt-Shift-J in IE and Firefox).</p>
+		</div>
+	</div>
+	
+  </div> 
+  
+</div>
+
+
+
+
+	<div class="container" > 
+	<!--
 			<div class="row" id="sp_v1">
 				<div class="col-md-6">
 					col-md-6
@@ -52,7 +129,7 @@
 					col-md-6
 				</div>
 			</div>
-		
+		-->
 	
 	<!--
 		   <div class="row" id="MySplitter">
