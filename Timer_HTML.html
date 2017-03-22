@@ -1,0 +1,33 @@
+<html>
+
+<body>
+<div id="time"></div>
+
+<script type="text/javascript">
+(function () {
+	var days = ['Chủ nhật','Thứ hai','Thứ ba','Thứ tư','Thứ năm','Thứ sáu','Thứ bảy'];
+    function checkTime(i) {
+        return (i < 10) ? "0" + i : i;
+    }
+
+    function startTime() {
+        var today = new Date(),
+            h = checkTime(today.getHours()),
+            m = checkTime(today.getMinutes()),
+            s = checkTime(today.getSeconds()),
+			y = checkTime(today.getFullYear()),
+            mm = checkTime(today.getMonth() + 1),
+            d = checkTime(today.getDate());			
+			
+        document.getElementById('time').innerHTML = days[ today.getDay() ] + ', ngày ' +  d + '/' + mm + '/' + y + ' ' +  h + ":" + m + ":" + s;
+        t = setTimeout(function () {
+            startTime()
+        }, 500);
+    }
+    startTime();
+})();
+</script>
+
+</body>
+</html>
+
