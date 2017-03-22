@@ -18,12 +18,10 @@
 .f-right{ float:right; }
 .text-inline{ white-space: nowrap; }
 
-.k-picker-wrap .k-input{
-	height: auto;
-}
-input.k-textbox{
-	height: 25px;
-}
+input.k-textbox{ height: 25px; }
+.k-picker-wrap.k-state-default{ height: 25px; border: 1px solid #ccc; }
+.k-picker-wrap .k-input{ height: 23px; }
+
 
 /*********************checkbox*************/
 .chkBoxContainer {
