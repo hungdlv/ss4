@@ -68,3 +68,31 @@ begin
  select* from @tblResult1  
  end  
 end
+
+
+CREATE proc usp_pttt_updatephanquyen  
+ @nhanvienid bigint,  
+ @menuid bigint,  
+ @xem bit,  
+ @them bit,  
+ @sua bit,  
+ @xoa bit,  
+ @print bit,  
+ @excel bit  
+as  
+begin  
+ 
+  
+  if not exists (select* from ubx_tblNhomQuyenChiTiet where MenuID=@menuid and nhomquyenid=@nhanvienid)  
+  begin  
+ insert into ubx_tblNhomQuyenChiTiet(NhomQuyenID, MenuID, Them, Xoa, Sua, Xem, [in], Excel)  
+ values(@nhanvienid, @menuid, @them, @xoa, @sua, @xem, @print, @excel)  
+  end  
+  else  
+  begin  
+ update ubx_tblNhomQuyenChiTiet  
+ set them=@them, sua=@sua, xoa=@xoa, xem=@xem, [in]=@print, excel=@excel  
+ where nhomquyenid=@nhanvienid and menuid=@menuid  
+  end  
+  
+end
